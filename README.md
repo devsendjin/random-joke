@@ -9,4 +9,4 @@ Then download this repo in `.zip` format or with next command:
 > cd random-joke/  
 > serve -s build/
 
-And then open the link that appeared in your **cmd**
+And then open the link that has appeared in your **cmd**
