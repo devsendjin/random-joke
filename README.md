@@ -1,1 +1,1 @@
-## Random joke with Chuck Norris
+# Random joke with Chuck Norris
