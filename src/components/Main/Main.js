@@ -4,15 +4,12 @@ import "./main.css";
 import Spinner from '../Spinner/Spinner'
 
 const Main = ({ jokeByCategory, resetCategory, onRandomJoke, loading }) => {
-  // const joke = loading ? <Spinner /> : `"${jokeByCategory}"`;
   const joke = loading ? <Spinner /> : (<div className="joke">"{jokeByCategory}"</div>);
 
   return (
     <main>
       <Gif />
         {joke}
-      {/*<div className="joke">"{jokeByCategory}"</div>*/}
-      {/*<Spinner />*/}
       <Gif />
       <div className="btn-wrapper">
         <button type="button" className="joke-btn" onClick={onRandomJoke}>
