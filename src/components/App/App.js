@@ -18,31 +18,31 @@ class App extends Component {
     this.onRandomJoke();
   }
 
-  onRandomJoke = () => {
-		this.setState({ loading: true });
-    fetch(this.urlRandomJoke)
+  getJoke(url) {
+    fetch(url)
       .then(res => {
         return res.json();
       })
       .then(body => {
-        if (!this.state.selectedCategory) {
-          this.setState({
-            jokeByCategory: body.value,
-            loading: false
-          });
-        } else {
-          this.setState({
-            jokeByCategory: body.value,
-            selectedCategory: "",
-            loading: false
-          });
-        }
+        this.setState({
+          jokeByCategory: body.value,
+          loading: false
+        });
       })
       .catch(err => console.error(`Err ${err}`));
+  }
+
+  onRandomJoke = () => {
+    this.setState({ loading: true });
+    if (this.state.selectedCategory) {
+      this.getJoke(this.url + this.state.selectedCategory);
+    } else {
+      this.getJoke(this.urlRandomJoke);
+    }
   };
 
   setJokeByCategory = genre => {
-		this.setState({ loading: true });
+    this.setState({ loading: true });
     fetch(this.url + genre)
       .then(res => {
         return res.json();
@@ -55,6 +55,12 @@ class App extends Component {
         });
       })
       .catch(err => console.error(`Err ${err}`));
+  };
+
+  resetCategory = () => {
+    if (this.state.selectedCategory) {
+      this.setState({ selectedCategory: "" });
+    }
   };
 
   render() {
@@ -71,6 +77,7 @@ class App extends Component {
             loading={loading}
             onRandomJoke={this.onRandomJoke}
             jokeByCategory={jokeByCategory}
+            resetCategory={this.resetCategory}
           />
         </div>
       </div>

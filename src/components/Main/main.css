@@ -12,17 +12,24 @@ main {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.joke-btn {
+.btn-wrapper {
   margin-top: 45px;
+}
+
+.joke-btn {
   color: #de5e43;
   border: 1px solid #000000;
   border-radius: 8px;
   background-color: transparent;
   padding: 8px 20px;
   cursor: pointer;
-  transition: background-color .2s;
+  transition: background-color 0.2s;
   outline: none;
   font-size: 18px;
+}
+
+.joke-btn:not(:last-child) {
+  margin-right: 10px;
 }
 
 .joke-btn:hover {
