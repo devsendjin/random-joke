@@ -10,3 +10,5 @@ Then download this repo in `.zip` format or with next command:
 > serve -s build/
 
 And then open the link that has appeared in your **cmd**
+
+Here located [**source files**](https://github.com/jsCodev/random-joke/tree/src-files)
